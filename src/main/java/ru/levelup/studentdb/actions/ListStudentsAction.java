@@ -8,7 +8,7 @@ import ru.levelup.studentdb.service.StudentsService;
 
 import java.util.List;
 
-@Component("listAction")
+@Component("liststudentsAction")
 @Scope("prototype")
 @RequiredArgsConstructor
 public class ListStudentsAction implements Action {

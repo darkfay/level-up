@@ -8,6 +8,7 @@ import ru.levelup.studentdb.service.CommandProcessor;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Locale;
 
 @Component
 @RequiredArgsConstructor
@@ -24,6 +25,7 @@ public class Bootstrap implements CommandLineRunner {
         // list students
 
         // create group GroupName
+        // add student to a group
         // list groups
 
         // save
@@ -34,7 +36,8 @@ public class Bootstrap implements CommandLineRunner {
 
         while (!(line = reader.readLine()).equals("exit")) {
             String[] tokens = line.split(" ");
-            processor.process(tokens[0], Arrays.copyOfRange(tokens, 1, tokens.length));
+            String cmd = new StringBuilder().append(tokens[0]).append(tokens[1]).toString();
+            processor.process(cmd, Arrays.copyOfRange(tokens, 1, tokens.length));
         }
 
         System.out.println();
